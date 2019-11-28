@@ -31,4 +31,4 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 
 ## Author Information
 
-- [Author Name (nickname)](github profile) _your-full-stuvus-email-address@stuvus.uni-stuttgart.de_
+- [Adriaan Nieß](https://github.com/AdriaanNiess)
