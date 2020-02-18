@@ -14,7 +14,7 @@
   apt:
     name: fail2ban
 
-- name: Start fail2ban
+- name: Start and enable fail2ban service
   service:
     name: fail2ban
     state: started
