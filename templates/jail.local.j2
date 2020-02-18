@@ -112,7 +112,7 @@ logencoding = {{ fail2ban_logencoding }}
 #
 # true:  jail will be enabled and log files will get monitored for changes
 # false: jail is not enabled
-enabled = {{ fail2ban_enabled }}
+enabled = {{ fail2ban_enabled | bool | lower }}
 
 
 # "filter" defines the filter to use by the jail.
@@ -224,8 +224,10 @@ action = %(action_)s
 [{{ jail.name }}]
 port = {{ jail.port }}
 logpath = {{ jail.logpath }}
-{% for opt_field in ['backend', 'bantime', 'findtime', 'maxretry', 'enabled'] %}
+{% for opt_field in ['backend', 'bantime', 'findtime', 'maxretry'] %}
 {% if jail[opt_field] is defined %}{{ opt_field }} = {{ jail[opt_field] }}{% endif %}
 {% endfor %}
+
+{% if jail['enabled'] is defined %}enabled = {{ jail['enabled'] | bool | lower }}{% endif %}
 
 {% endfor %}
