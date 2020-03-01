@@ -7,7 +7,6 @@ fail2ban_backend: systemd
 fail2ban_logencoding: auto
 fail2ban_ignoreip:
   - "127.0.0.1/8"
-fail2ban_additional_filters: []
 fail2ban_jails:
   - name: sshd
     port: ssh

@@ -190,10 +190,14 @@ action = %(action_)s
 {% for jail in fail2ban_jails %}
 
 [{{ jail.name }}]
+
 port = {{ jail.port }}
 logpath = {{ jail.logpath }}
-{% for opt_field in ['backend', 'bantime', 'findtime', 'maxretry'] %}
+
+{% for opt_field in ['backend', 'bantime', 'findtime', 'maxretry', 'filter', 'action'] %}
+
 {% if jail[opt_field] is defined %}{{ opt_field }} = {{ jail[opt_field] }}{% endif %}
+
 {% endfor %}
 
 {% if jail['enabled'] is defined %}enabled = {{ jail['enabled'] | bool | lower }}{% endif %}

@@ -8,7 +8,7 @@
   template:
     src: jail.local.j2
     dest: /etc/fail2ban/jail.local
-  notify: Restart fail2ban
+  notify: Reload fail2ban
 
 - name: Install fail2ban
   apt:
@@ -19,3 +19,21 @@
     name: fail2ban
     state: started
     enabled: yes
+
+- name: Copy filters
+  copy:
+    src: filter.d/
+    dest: /etc/fail2ban/filter.d/
+    mode: 0644
+    owner: root
+    group: root
+  notify: Reload fail2ban
+
+- name: Copy actions
+  copy:
+    src: action.d/
+    dest: /etc/fail2ban/action.d/
+    mode: 0644
+    owner: root
+    group: root
+  notify: Reload fail2ban
