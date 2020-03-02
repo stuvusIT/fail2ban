@@ -12,12 +12,12 @@ No requirements, but can be used in combination with the [nginx](https://github.
 
 | Name | Required/Default | Description |
 |------|------------------|-------------|
-| `fail2ban_bantime` | 3600 | Time to ban hosts. Can be overwritten for individual jails. |
-| `fail2ban_findtime` | 600 | If a hosts exceeds `fail2ban_maxretry` violations within this timeframe it will get banned. Can be overwritten for individual jails. |
-| `fail2ban_maxretry` | 3 | Maximum violations until ban. Can be overwritten for individual jails. |
-| `fail2ban_enabled` | False | On default all jails are disabled and must be enabled individually. |
-| `fail2ban_backend` | systemd | Default backend used to read logs and detect violations. |
-| `fail2ban_logencoding` | auto ||
+| `fail2ban_bantime` | `3600` | Time to ban hosts. Can be overwritten for individual jails. |
+| `fail2ban_findtime` | `600` | If a hosts exceeds `fail2ban_maxretry` violations within this timeframe it will get banned. Can be overwritten for individual jails. |
+| `fail2ban_maxretry` | `3` | Maximum violations until ban. Can be overwritten for individual jails. |
+| `fail2ban_enabled` | `False` | On default all jails are disabled and must be enabled individually. |
+| `fail2ban_backend` | `systemd` | Default backend used to read logs and detect violations. |
+| `fail2ban_logencoding` | `auto` ||
 | `fail2ban_ignoreip` | ["127.0.0.1/8"] | List of IPs that must not get banned. |
 
 ### Jails
