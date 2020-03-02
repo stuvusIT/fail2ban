@@ -1,27 +1,53 @@
 # Role Name
 
-A brief description of the role goes here.
-
+This role sets up fail2ban.
 
 ## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here.
-For instance, if the role uses the EC2 module or depends on other Ansible roles, it may be a good idea to mention in this section that the boto package is required.
-
+No requirements, but can be used in combination with the [nginx](https://github.com/stuvusIT/nginx) role. 
 
 ## Role Variables
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role.
-Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+### General
 
-```yml
-```
+| Name | Required/Default | Description |
+|------|------------------|-------------|
+| `fail2ban_bantime` | 3600 | Time to ban hosts. Can be overwritten for individual jails. |
+| `fail2ban_findtime` | 600 | If a hosts exceeds `fail2ban_maxretry` violations within this timeframe it will get banned. Can be overwritten for individual jails. |
+| `fail2ban_maxretry` | 3 | Maximum violations until ban. Can be overwritten for individual jails. |
+| `fail2ban_enabled` | False | On default all jails are disabled and must be enabled individually. |
+| `fail2ban_backend` | systemd | Default backend used to read logs and detect violations. |
+| `fail2ban_logencoding` | auto ||
+| `fail2ban_ignoreip` | ["127.0.0.1/8"] | List of IPs that must not get banned. |
+
+### Jails
+
+`fail2ban_jails` is a list of objects with the following attributes:
+
+| Name | Required/Default | Description |
+|------|------------------|-------------|
+| `name` | :heavy_check_mark: | Name of the jail. |
+| `port` | :heavy_check_mark: | Portnumber to check. Is only considered by certain filters. |
+| `logpath` | :heavy_check_mark: | Logfile to check. |
+| `backend` | :heavy_multiplication_x: | Backend e.g. `systemd` or `auto` |
+| `enabled` | `False` | Enables/Disables the jail. |
+| `maxretry` | :heavy_multiplication_x: | Maximum violations until ban. |
+| `bantime` | :heavy_multiplication_x: | Time to ban hosts. |
+| `findtime` | :heavy_multiplication_x: | If a hosts exceeds `fail2ban_maxretry` or respectively `maxretry` violations within this timeframe it will get banned. |
+| `filters` | :heavy_multiplication_x: | Name of the filter to be applied. |
+| `action` | :heavy_multiplication_x: | Name of the action to be applied if a filter matches. |
 
 ## Example Playbook
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-```yml
+```
+fail2ban_jails:
+  - name: wordpress
+    port: http,https
+    filter: wordpress
+    action: nginx
+    logpath: "%(nginx_error_log)s"
+    backend: "%(default_backend)s"
+    enabled: True
 ```
 
 ## License
