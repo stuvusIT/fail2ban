@@ -18,7 +18,7 @@ No requirements, but can be used in combination with the [nginx](https://github.
 | `fail2ban_enabled` | `False` | On default all jails are disabled and must be enabled individually. |
 | `fail2ban_backend` | `systemd` | Default backend used to read logs and detect violations. |
 | `fail2ban_logencoding` | `auto` ||
-| `fail2ban_ignoreip` | ["127.0.0.1/8"] | List of IPs that must not get banned. |
+| `fail2ban_ignoreip` | `["127.0.0.1/8"]` | List of IPs that must not get banned. |
 
 ### Jails
 
