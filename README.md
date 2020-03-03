@@ -4,7 +4,8 @@ This role sets up fail2ban.
 
 ## Requirements
 
-No requirements, but can be used in combination with the [nginx](https://github.com/stuvusIT/nginx) role. 
+An apt-based system with `fail2ban` in a configured repository.
+The role can be used in combination with the [nginx](https://github.com/stuvusIT/nginx) role. 
 
 ## Role Variables
 
