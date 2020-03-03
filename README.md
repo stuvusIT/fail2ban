@@ -30,7 +30,7 @@ The role can be used in combination with the [nginx](https://github.com/stuvusIT
 | `name` | :heavy_check_mark: | Name of the jail. |
 | `port` | :heavy_check_mark: | Portnumber to check. Is only considered by certain filters. |
 | `logpath` | :heavy_check_mark: | Logfile to check. |
-| `backend` | :heavy_multiplication_x: | Backend e.g. `systemd` or `auto` |
+| `backend` | `{{ fail2ban_backend }}` | Backend e.g. `systemd` or `auto` |
 | `enabled` | `{{ fail2ban_enabled }}` | Enables/Disables the jail. |
 | `maxretry` | :heavy_multiplication_x: | Maximum violations until ban. |
 | `bantime` | :heavy_multiplication_x: | Time to ban hosts. |
