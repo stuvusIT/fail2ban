@@ -1,5 +1,5 @@
 ---
-- name: Make folder /etc/fail2ban
+- name: Create configuration directory /etc/fail2ban
   file:
     state: directory
     path: /etc/fail2ban
