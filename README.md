@@ -32,7 +32,7 @@ The role can be used in combination with the [nginx](https://github.com/stuvusIT
 | `logpath` | :heavy_check_mark: | Logfile to check. |
 | `backend` | `{{ fail2ban_backend }}` | Backend e.g. `systemd` or `auto` |
 | `enabled` | `{{ fail2ban_enabled }}` | Enables/Disables the jail. |
-| `maxretry` | :heavy_multiplication_x: | Maximum violations until ban. |
+| `maxretry` | `{{ fail2ban_maxretry }}` | Maximum violations until ban. |
 | `bantime` | :heavy_multiplication_x: | Time to ban hosts. |
 | `findtime` | :heavy_multiplication_x: | If a hosts exceeds `fail2ban_maxretry` or respectively `maxretry` violations within this timeframe it will get banned. |
 | `filters` | :heavy_multiplication_x: | Name of the filter to be applied. |
