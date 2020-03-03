@@ -1,4 +1,4 @@
-# Role Name
+# fail2ban
 
 This role sets up fail2ban.
 
