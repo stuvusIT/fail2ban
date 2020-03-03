@@ -28,7 +28,7 @@ The role can be used in combination with the [nginx](https://github.com/stuvusIT
 | Name | Required/Default | Description |
 |------|------------------|-------------|
 | `name` | :heavy_check_mark: | Name of the jail. |
-| `port` | :heavy_check_mark: | Portnumber to check. Is only considered by certain filters. |
+| `port` | :heavy_check_mark: | Portnumber to check. Is only considered by certain filters. Numbers or names of well-defined ports (e.g. `ssh`, `http`, `sftp`) are allowed. |
 | `logpath` | :heavy_check_mark: | Logfile to check. |
 | `backend` | `{{ fail2ban_backend }}` | Backend e.g. `systemd` or `auto` |
 | `enabled` | `{{ fail2ban_enabled }}` | Enables/Disables the jail. |
