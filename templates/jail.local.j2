@@ -195,11 +195,13 @@ port = {{ jail.port | join(', ')}}
 logpath = {{ jail.logpath }}
 
 {% for opt_field in ['backend', 'bantime', 'findtime', 'maxretry', 'filter', 'action'] %}
-
-{% if jail[opt_field] is defined %}{{ opt_field }} = {{ jail[opt_field] }}{% endif %}
-
+{% if jail[opt_field] is defined %}
+{{ opt_field }} = {{ jail[opt_field] }}
+{% endif %}
 {% endfor %}
 
-{% if jail['enabled'] is defined %}enabled = {{ jail['enabled'] | bool | lower }}{% endif %}
+{% if jail['enabled'] is defined %}
+enabled = {{ jail['enabled'] | bool | lower }}
+{% endif %}
 
 {% endfor %}
