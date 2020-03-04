@@ -191,7 +191,7 @@ action = %(action_)s
 
 [{{ jail.name }}]
 
-port = {{ jail.port }}
+port = {{ jail.port | join(', ')}}
 logpath = {{ jail.logpath }}
 
 {% for opt_field in ['backend', 'bantime', 'findtime', 'maxretry', 'filter', 'action'] %}
