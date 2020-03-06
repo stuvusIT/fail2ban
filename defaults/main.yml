@@ -9,22 +9,22 @@ fail2ban_ignoreip:
   - "127.0.0.1/8"
 fail2ban_jails:
   sshd:
-    port: [ ssh ]
+    ports: [ ssh ]
     logpath: "%(sshd_log)s"
     backend: systemd
     enabled: True
   sshd-ddos:
-    port: [ ssh ]
+    ports: [ ssh ]
     logpath: "%(sshd_log)s"
     backend: systemd
     enabled: True
   nginx-limit-req:
-    port: [ http, https ]
+    ports: [ http, https ]
     logpath: "%(nginx_error_log)s"
   nginx-http-auth:
-    port: [ http, https ]
+    ports: [ http, https ]
     logpath: "%(nginx_error_log)s"
   nginx-botsearch:
-    port: [ http, https ]
+    ports: [ http, https ]
     logpath: "%(nginx_error_log)s"
     maxretry: 2
