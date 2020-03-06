@@ -190,7 +190,6 @@ action = %(action_)s
 {% for jailName, jail in fail2ban_jails.items() %}
 
 [{{ jailName }}]
-
 port = {{ jail.ports | unique | join(', ')}}
 logpath = {{ jail.logpath }}
 
@@ -204,4 +203,4 @@ logpath = {{ jail.logpath }}
 enabled = {{ jail['enabled'] | bool | lower }}
 {% endif %}
 
-{% endfor %}
+{% endfor %}{# Jail end #}
