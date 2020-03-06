@@ -187,9 +187,9 @@ action = %(action_)s
 # JAILS
 #
 
-{% for jail in fail2ban_jails %}
+{% for jailName, jail in fail2ban_jails.items() %}
 
-[{{ jail.name }}]
+[{{ jailName }}]
 
 port = {{ jail.port | unique | join(', ')}}
 logpath = {{ jail.logpath }}

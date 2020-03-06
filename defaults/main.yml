@@ -8,23 +8,23 @@ fail2ban_logencoding: auto
 fail2ban_ignoreip:
   - "127.0.0.1/8"
 fail2ban_jails:
-  - name: sshd
+  sshd:
     port: [ ssh ]
     logpath: "%(sshd_log)s"
     backend: systemd
     enabled: True
-  - name: sshd-ddos
+  sshd-ddos:
     port: [ ssh ]
     logpath: "%(sshd_log)s"
     backend: systemd
     enabled: True
-  - name: nginx-limit-req
+  nginx-limit-req:
     port: [ http, https ]
     logpath: "%(nginx_error_log)s"
-  - name: nginx-http-auth
+  nginx-http-auth:
     port: [ http, https ]
     logpath: "%(nginx_error_log)s"
-  - name: nginx-botsearch
+  nginx-botsearch:
     port: [ http, https ]
     logpath: "%(nginx_error_log)s"
     maxretry: 2
