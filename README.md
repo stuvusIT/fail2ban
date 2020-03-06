@@ -42,8 +42,8 @@ The role can be used in combination with the [nginx](https://github.com/stuvusIT
 
 ```
 fail2ban_jails:
-  - name: wordpress
-    port: http,https
+  wordpress:
+    port: [ http, https ]
     filter: wordpress
     action: nginx
     logpath: "%(nginx_error_log)s"
