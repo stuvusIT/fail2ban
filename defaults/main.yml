@@ -1,0 +1,30 @@
+---
+fail2ban_bantime: 3600
+fail2ban_findtime: 600
+fail2ban_maxretry: 3
+fail2ban_enabled: False
+fail2ban_backend: systemd
+fail2ban_logencoding: auto
+fail2ban_ignoreip:
+  - "127.0.0.1/8"
+fail2ban_jails:
+  sshd:
+    ports: [ ssh ]
+    logpath: "%(sshd_log)s"
+    backend: systemd
+    enabled: True
+  sshd-ddos:
+    ports: [ ssh ]
+    logpath: "%(sshd_log)s"
+    backend: systemd
+    enabled: True
+  nginx-limit-req:
+    ports: [ http, https ]
+    logpath: "%(nginx_error_log)s"
+  nginx-http-auth:
+    ports: [ http, https ]
+    logpath: "%(nginx_error_log)s"
+  nginx-botsearch:
+    ports: [ http, https ]
+    logpath: "%(nginx_error_log)s"
+    maxretry: 2
