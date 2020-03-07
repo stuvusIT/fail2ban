@@ -23,11 +23,10 @@ The role can be used in combination with the [nginx](https://github.com/stuvusIT
 
 ### Jails
 
-`fail2ban_jails` is a list of objects with the following attributes:
+`fail2ban_jails` is a dict where the key corresponds to the jail name and the value is an object with the following attributes:
 
 | Name       | Required/Default          | Description                                                                                                                                            |
 |------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`     | :heavy_check_mark:        | Name of the jail.                                                                                                                                      |
 | `ports`    | :heavy_check_mark:        | List of port numbers to check. Is only considered by certain filters. Numbers or names of well-defined ports (e.g. `ssh`, `http`, `sftp`) are allowed. |
 | `logpath`  | :heavy_check_mark:        | Logfile to check.                                                                                                                                      |
 | `backend`  | `{{ fail2ban_backend }}`  | Backend e.g. `systemd` or `auto`                                                                                                                       |
